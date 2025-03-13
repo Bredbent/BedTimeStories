@@ -1,4 +1,4 @@
-# Godnattsagor - Personalized Bedtime Stories App
+# Drömfabriken - Personalized Bedtime Stories App
 
 A Swedish iOS application that generates personalized bedtime stories for children using AI.
 
