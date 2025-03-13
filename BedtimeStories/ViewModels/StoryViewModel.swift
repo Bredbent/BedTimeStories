@@ -1,10 +1,3 @@
-//
-//  StoryViewModel.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 import Foundation
 import SwiftUI
 import Combine
@@ -122,15 +115,15 @@ class StoryViewModel: ObservableObject {
         if let apiError = error as? APIError {
             switch apiError {
             case .unauthorized:
-                return "Invalid API key. Please check your settings."
+                return "Ogiltig API-nyckel. Vänligen kontrollera dina inställningar."
             case .rateLimitExceeded:
-                return "Rate limit exceeded. Please try again later."
+                return "Hastighetsgräns överskriden. Vänligen försök igen senare."
             case .serverError(let message):
-                return "Server error: \(message)"
+                return "Serverfel: \(message)"
             default:
-                return "An error occurred: \(apiError.localizedDescription)"
+                return "Ett fel inträffade: \(apiError.localizedDescription)"
             }
         }
-        return "An unexpected error occurred: \(error.localizedDescription)"
+        return "Ett oväntat fel inträffade: \(error.localizedDescription)"
     }
 }

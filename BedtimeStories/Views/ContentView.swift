@@ -1,30 +1,25 @@
-//
-//  ContentView.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // ContentView.swift
 import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = StoryViewModel()
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         NavigationView {
             TabView {
                 StoryInputView(viewModel: viewModel)
                     .tabItem {
-                        Label("Create Story", systemImage: "plus.circle")
+                        Label("Skapa Saga", systemImage: "plus.circle")
                     }
                 
                 RecentStoriesView(viewModel: viewModel)
                     .tabItem {
-                        Label("Recent Stories", systemImage: "book")
+                        Label("Tidigare Sagor", systemImage: "book")
                     }
             }
-            .navigationTitle("Bedtime Stories")
+            .navigationTitle("Godnattsagor")
+            .preferredColorScheme(colorScheme)
         }
     }
 }

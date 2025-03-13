@@ -1,17 +1,11 @@
-//
-//  StoryDisplayView.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // StoryDisplayView.swift
 import SwiftUI
 
 struct StoryDisplayView: View {
     let story: Story
-    @State private var isSpeaking = false
+    @StateObject private var speechManager = TextToSpeechManager()
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ScrollView {
@@ -36,22 +30,33 @@ struct StoryDisplayView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    isSpeaking.toggle()
-                    // Implement text-to-speech functionality
-                    // This would use AVSpeechSynthesizer in a production app
+                    if speechManager.isSpeaking {
+                        speechManager.stopSpeaking()
+                    } else {
+                        speechManager.speak(story.content)
+                    }
                 }) {
                     Label(
-                        isSpeaking ? "Stop Reading" : "Read Aloud",
-                        systemImage: isSpeaking ? "stop.fill" : "play.fill"
+                        speechManager.isSpeaking ? "Sluta läsa" : "Läs högt",
+                        systemImage: speechManager.isSpeaking ? "stop.fill" : "play.fill"
                     )
                 }
             }
             
             ToolbarItem(placement: .navigationBarLeading) {
-                Button("Close") {
+                Button("Stäng") {
+                    if speechManager.isSpeaking {
+                        speechManager.stopSpeaking()
+                    }
                     presentationMode.wrappedValue.dismiss()
                 }
             }
         }
+        .onDisappear {
+            if speechManager.isSpeaking {
+                speechManager.stopSpeaking()
+            }
+        }
+        .preferredColorScheme(colorScheme)
     }
 }

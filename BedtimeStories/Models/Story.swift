@@ -1,10 +1,3 @@
-//
-//  Story.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // Story.swift
 import Foundation
 

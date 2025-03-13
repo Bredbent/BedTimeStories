@@ -1,10 +1,3 @@
-//
-//  StoryInputView.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // StoryInputView.swift
 import SwiftUI
 
@@ -13,26 +6,27 @@ struct StoryInputView: View {
     @State private var isGeneratingStory = false
     @State private var showingStory = false
     @State private var currentStory: Story?
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         Form {
-            Section(header: Text("Child Information")) {
-                TextField("Child's Name", text: $viewModel.childName)
+            Section(header: Text("Barnets information")) {
+                TextField("Barnets namn", text: $viewModel.childName)
                     .autocapitalization(.words)
                 
-                TextField("Age", text: $viewModel.age)
+                TextField("Ålder", text: $viewModel.age)
                     .keyboardType(.numberPad)
             }
             
-            Section(header: Text("Story Details")) {
-                TextField("Theme (e.g., pirates, princesses, space)", text: $viewModel.theme)
+            Section(header: Text("Sagans detaljer")) {
+                TextField("Tema (t.ex. pirater, prinsessor, rymden)", text: $viewModel.theme)
                 
                 TextEditor(text: $viewModel.additionalDetails)
                     .frame(height: 100)
                     .overlay(
                         Group {
                             if viewModel.additionalDetails.isEmpty {
-                                Text("Additional details (optional)")
+                                Text("Ytterligare detaljer (valfritt)")
                                     .foregroundColor(Color(.placeholderText))
                                     .padding(.horizontal, 4)
                                     .padding(.vertical, 8)
@@ -60,10 +54,10 @@ struct StoryInputView: View {
                         HStack {
                             ProgressView()
                                 .padding(.trailing, 8)
-                            Text("Generating Story...")
+                            Text("Skapar saga...")
                         }
                     } else {
-                        Text("Generate Bedtime Story")
+                        Text("Skapa godnattsaga")
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
@@ -82,5 +76,6 @@ struct StoryInputView: View {
                 StoryDisplayView(story: story)
             }
         }
+        .preferredColorScheme(colorScheme)
     }
 }

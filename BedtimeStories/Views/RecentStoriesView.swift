@@ -1,10 +1,3 @@
-//
-//  RecentStoriesView.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // RecentStoriesView.swift
 import SwiftUI
 
@@ -12,14 +5,15 @@ struct RecentStoriesView: View {
     @ObservedObject var viewModel: StoryViewModel
     @State private var selectedStory: Story?
     @State private var showingStory = false
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         VStack {
             if viewModel.recentStories.isEmpty {
                 ContentUnavailableView(
-                    "No Stories Yet",
+                    "Inga sagor ännu",
                     systemImage: "book",
-                    description: Text("Generate your first story to see it here")
+                    description: Text("Skapa din första saga för att se den här")
                 )
             } else {
                 List {
@@ -29,13 +23,13 @@ struct RecentStoriesView: View {
                                 .font(.headline)
                             
                             HStack {
-                                Text("For: \(story.childName)")
+                                Text("För: \(story.childName)")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                                 
                                 Spacer()
                                 
-                                Text("Theme: \(story.theme)")
+                                Text("Tema: \(story.theme)")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -55,5 +49,6 @@ struct RecentStoriesView: View {
                 StoryDisplayView(story: story)
             }
         }
+        .preferredColorScheme(colorScheme)
     }
 }

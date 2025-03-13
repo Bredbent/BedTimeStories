@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		574637FC2D82748D00C902B6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 574637FB2D82748D00C902B6 /* .gitignore */; };
+		574637FE2D82749800C902B6 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 574637FD2D82749800C902B6 /* readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5746379D2D8262A100C902B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		5746378C2D82629C00C902B6 /* BedtimeStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedtimeStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5746379C2D8262A100C902B6 /* BedtimeStoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedtimeStoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		574637A62D8262A100C902B6 /* BedtimeStoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedtimeStoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		574637FB2D82748D00C902B6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		574637FD2D82749800C902B6 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -79,6 +86,8 @@
 				5746379F2D8262A100C902B6 /* BedtimeStoriesTests */,
 				574637A92D8262A100C902B6 /* BedtimeStoriesUITests */,
 				5746378D2D82629C00C902B6 /* Products */,
+				574637FB2D82748D00C902B6 /* .gitignore */,
+				574637FD2D82749800C902B6 /* readme.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574637FE2D82749800C902B6 /* readme.md in Resources */,
+				574637FC2D82748D00C902B6 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

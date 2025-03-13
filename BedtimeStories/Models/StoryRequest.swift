@@ -1,10 +1,3 @@
-//
-//  StoryRequest.swift
-//  BedtimeStories
-//
-//  Created by Victor Uttberg on 2025-03-13.
-//
-
 // StoryRequest.swift
 import Foundation
 
@@ -16,14 +9,14 @@ struct StoryRequest: Codable {
     
     // Converts object to prompt for OpenAI
     func toPrompt() -> String {
-        var prompt = "Create a short, age-appropriate bedtime story for a \(age)-year-old child named \(childName)."
-        prompt += " The story should be about \(theme)."
+        var prompt = "Skapa en kort, åldersanpassad godnattsaga för ett \(age)-årigt barn som heter \(childName)."
+        prompt += " Sagan ska handla om \(theme)."
         
         if let details = additionalDetails, !details.isEmpty {
-            prompt += " Include these additional details: \(details)."
+            prompt += " Inkludera dessa detaljer: \(details)."
         }
         
-        prompt += " The story should be uplifting, educational, and end on a positive note. It should be approximately 300-500 words."
+        prompt += " Sagan ska vara upplyftande, lärorik och sluta på ett positivt sätt. Den ska vara ungefär 300-500 ord lång. Skriv alltid på svenska."
         
         return prompt
     }

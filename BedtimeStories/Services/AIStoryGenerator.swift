@@ -29,7 +29,7 @@ class AIStoryGenerator {
         let requestBody: [String: Any] = [
             "model": model,
             "messages": [
-                ["role": "system", "content": "You are a children's storyteller who creates magical, age-appropriate bedtime stories."],
+                ["role": "system", "content": "You are a children's storyteller who creates magical, age-appropriate bedtime stories. Always write stories in Swedish language."],
                 ["role": "user", "content": request.toPrompt()]
             ],
             "temperature": 0.7,
