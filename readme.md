@@ -20,8 +20,8 @@ A Swedish iOS application that generates personalized bedtime stories for childr
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/godnattsagor.git
-cd godnattsagor
+git clone https://github.com/bredbent/bedtimestories.git
+cd bedtimestories
 ```
 
 2. Open the project in Xcode
